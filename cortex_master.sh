@@ -34,7 +34,7 @@ AI_HAT_VENDOR_NAME="aihat"
 AI_HAT_UDEV_MATCH='KERNEL=="npu*", MODE="0660", GROUP="npu"'
 
 # Ansible pull (only used if ENABLE_ANSIBLE_PULL=yes)
-ANSIBLE_REPO="git@github.com:your-org/pi-fleet.git"
+ANSIBLE_REPO="git@github.com:caustic-sam/pi-fleet.git"
 ANSIBLE_BRANCH="main"
 ANSIBLE_ARGS="-i inventories/site/hosts.yml playbooks/site.yml"
 
@@ -67,7 +67,7 @@ apt_hygiene() {
     ufw fail2ban avahi-daemon avahi-utils \
     build-essential python3-full python3-pip \
     zram-tools powertop lm-sensors smartmontools nvme-cli hdparm \
-    pciutils usbutils util-linux fstrim rsync
+    pciutils usbutils util-linux rsync
 }
 
 hostname_timezone() {
