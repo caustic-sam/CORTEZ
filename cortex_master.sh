@@ -222,7 +222,7 @@ services:
 EOF
 
   # Allow stack user to control the compose stack
-[ - Adding a conservative TimeoutStartSec to the generated unit so systemd waits slightly longer for compose up. This is idempotent: it only changes the template written to /etc/systemd/system. ]
+#[ - Adding a conservative TimeoutStartSec to the generated unit so systemd waits slightly longer for compose up. This is idempotent: it only changes the template written to /etc/systemd/system. ]
   cat >/etc/systemd/system/rpicortex-stack@.service <<'UNIT'
 [Unit]
 Description=Manage rpicortex docker compose (up/down)
