@@ -1,7 +1,7 @@
 <!-- .github/copilot-instructions.md -->
 # Guidance for AI coding agents working on Cortex
 
-This repository is a small utility/installer for Raspberry Pi 5 Docker hosts. Primary artifact: `cortex_master.sh` (a single, idempotent bash bootstrap script that scaffolds packages, users, Docker, systemd units, and optional features such as an "AI HAT").
+This repository is a small utility/installer for Raspberry Pi 5 Docker hosts. Primary artifact: `cxortex_master.sh` (a single, idempotent bash bootstrap script that scaffolds packages, users, Docker, systemd units, and optional features such as an "AI HAT").
 
 Keep responses short and actionable. Prefer concrete edits to the codebase (small, focused patches). When making changes, reference the exact file and function (for example: `cortex_master.sh::docker_install()`).
 
