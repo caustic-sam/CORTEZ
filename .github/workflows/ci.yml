@@ -1,0 +1,53 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+
+      - name: Find shell scripts
+        run: |
+          echo "## found shell files:" && git ls-files '*.sh' || true
+
+      - name: Run shellcheck
+        run: |
+          set -e
+          files=$(git ls-files '*.sh' | xargs || true)
+          if [ -n "$files" ]; then
+            echo "$files" | xargs -n1 shellcheck
+          else
+            echo "No shell scripts to lint"
+          fi
+
+      - name: Bash syntax check for cortex_master.sh
+        run: |
+          if [ -f cortex_master.sh ]; then
+            bash -n cortex_master.sh
+          else
+            echo "cortex_master.sh not found"
+          fi
+
+      - name: Run scripts lint
+        run: |
+          set -e
+          for f in $(git ls-files 'scripts/*' '*.sh' || true); do
+            if [ -f "$f" ]; then
+              shellcheck "$f" || true
+            fi
+          done
