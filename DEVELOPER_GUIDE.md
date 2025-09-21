@@ -97,6 +97,16 @@ sudo ./scripts/fix-perms.sh
 
 - Notification: GitHub will notify reviewers and the committer when checks fail; ensure your notification settings are enabled or set up a Slack/email integration if you want immediate alerts.
 
+9) Home Assistant container scaffold
+
+- A minimal development scaffold lives in `rr_homeassistant/`. It includes a `Dockerfile` (non-root example) and a `docker-compose.yml` for local testing.
+- To iterate:
+  ```bash
+  cd rr_homeassistant
+  docker compose up --build
+  ```
+- For production usage, switch to the official Home Assistant images and follow their deployment recommendations.
+
 ---
 
 Keep this file short and update as the project's practices evolve.
