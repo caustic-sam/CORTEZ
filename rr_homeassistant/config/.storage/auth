@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "auth",
+  "data": {
+    "users": [
+      {
+        "id": "dbdcb8801def465ea36f31f027da200d",
+        "group_ids": [
+          "system-read-only"
+        ],
+        "is_owner": false,
+        "is_active": true,
+        "name": "Home Assistant Content",
+        "system_generated": true,
+        "local_only": false
+      },
+      {
+        "id": "de5e55d0a94b4a318faece23e7739366",
+        "group_ids": [
+          "system-admin"
+        ],
+        "is_owner": false,
+        "is_active": true,
+        "name": "Home Assistant Cast",
+        "system_generated": true,
+        "local_only": false
+      },
+      {
+        "id": "0afd636ac72b416b974c1edc2554a44e",
+        "group_ids": [
+          "system-admin"
+        ],
+        "is_owner": true,
+        "is_active": true,
+        "name": "roundrock",
+        "system_generated": false,
+        "local_only": false
+      }
+    ],
+    "groups": [
+      {
+        "id": "system-admin",
+        "name": "Administrators"
+      },
+      {
+        "id": "system-users",
+        "name": "Users"
+      },
+      {
+        "id": "system-read-only",
+        "name": "Read Only"
+      }
+    ],
+    "credentials": [
+      {
+        "id": "f51f313c896a4ca9a92e1619ec487e52",
+        "user_id": "0afd636ac72b416b974c1edc2554a44e",
+        "auth_provider_type": "homeassistant",
+        "auth_provider_id": null,
+        "data": {
+          "username": "roundrock"
+        }
+      }
+    ],
+    "refresh_tokens": [
+      {
+        "id": "5b0c807a6f82439c88b6fa8c3e3c4bfe",
+        "user_id": "dbdcb8801def465ea36f31f027da200d",
+        "client_id": null,
+        "client_name": null,
+        "client_icon": null,
+        "token_type": "system",
+        "created_at": "2025-09-20T03:51:05.714544+00:00",
+        "access_token_expiration": 1800.0,
+        "token": "500ea6cf08b7c2194aa67b4d2381086792b8dc0ce2aa7886caed69b0f897c19b1df8aad6897a2aed17a1c835043b7f266d0489e09e18623a78e5e9c10203e667",
+        "jwt_key": "8c11e5e4b36fc272dd9d9893667c14e6e73d5b5e9618f054eb4b0c2b446106e354106fff93148e19ac9702e5e501e9174e540d4f1b1d61a6bd35ba096204960c",
+        "last_used_at": null,
+        "last_used_ip": null,
+        "expire_at": null,
+        "credential_id": null,
+        "version": "2025.9.4"
+      },
+      {
+        "id": "33c5a6f4cdd448609f0adb75cb6c46b6",
+        "user_id": "de5e55d0a94b4a318faece23e7739366",
+        "client_id": null,
+        "client_name": null,
+        "client_icon": null,
+        "token_type": "system",
+        "created_at": "2025-09-20T03:51:17.755874+00:00",
+        "access_token_expiration": 1800.0,
+        "token": "8c541e2729056bd2b1e24f006ef820c1485581e4a975471d08c8fe6a7c6fd70a7813c77a064b7e72305f5367a18c883beb2e58fcc02222a5b31eb15330116786",
+        "jwt_key": "a3806cea691673fe3939bbc382810092f220f6aac33242d1d561b5a6e54f19ccf8c0322f3f29be1ab44830f6471b4418ee849af2bb59d0fbe6f88f8efc9dddf9",
+        "last_used_at": null,
+        "last_used_ip": null,
+        "expire_at": null,
+        "credential_id": null,
+        "version": "2025.9.4"
+      },
+      {
+        "id": "6e088d87bd204576b745478d0cea662d",
+        "user_id": "0afd636ac72b416b974c1edc2554a44e",
+        "client_id": "http://192.168.1.20:8123/",
+        "client_name": null,
+        "client_icon": null,
+        "token_type": "normal",
+        "created_at": "2025-09-20T04:40:22.792405+00:00",
+        "access_token_expiration": 1800.0,
+        "token": "0c824f8beef6290cc7f74f9a6c9cc7eb7a606c29b33936da24564c666f4e8fe55a02ef956df4071a2dc47c1163361f8d313da0958f21b22dd7a2a4a54ef0f253",
+        "jwt_key": "56de7b72e7fbda0263b506ac50955da8206e65c4739f9e195303f7b25e2fa8448d3a138b96c639ebabf6cf69600aaae7d6ee8818fb7d6cd6f712777678791408",
+        "last_used_at": "2025-09-20T17:57:45.690434+00:00",
+        "last_used_ip": "192.168.1.121",
+        "expire_at": 1766167065.690434,
+        "credential_id": "f51f313c896a4ca9a92e1619ec487e52",
+        "version": "2025.9.4"
+      }
+    ]
+  }
+}
