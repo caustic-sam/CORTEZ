@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "core.label_registry",
+  "data": {
+    "labels": [
+      {
+        "color": "deep-purple",
+        "description": null,
+        "icon": "mdi:account",
+        "label_id": "wren",
+        "name": "Wren",
+        "created_at": "2025-09-20T18:00:37.610142+00:00",
+        "modified_at": "2025-09-20T18:00:37.610148+00:00"
+      }
+    ]
+  }
+}

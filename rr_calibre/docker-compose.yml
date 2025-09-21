@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+  calibre:
+    image: lscr.io/linuxserver/calibre:latest
+    container_name: calibre
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-America/Chicago}
+      # Optional: simple HTTP auth for the GUI (LAN only — use a reverse proxy for Internet exposure)
+      # - CUSTOM_USER=${CALIBRE_USER:-wren}
+      # - PASSWORD=${CALIBRE_PASS:-change-me}
+      # Optional: extra CLI args passed to calibre on start
+      # - CLI_ARGS=
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      # Holds Calibre's config AND the actual library at /config/Calibre Library
+      - ${CALIBRE_CONFIG:-/home/jm/data/calibre}:/config
+      # Drop ebooks here; point Calibre's "Auto-add" folder to /autoadd in Preferences later
+      - ${CALIBRE_AUTOADD:-/home/jm/data/calibre-autoadd}:/autoadd
+    ports:
+      - "8080:8080"   # HTTP GUI (mainly for use behind reverse proxy)
+      - "8181:8181"   # HTTPS GUI (noVNC desktop to run full Calibre)
+      - "8081:8081"   # Calibre content server (enable in Calibre > Preferences > Sharing over the net)
+    restart: unless-stopped
+
+  calibre-web:
+    image: lscr.io/linuxserver/calibre-web:latest
+    container_name: calibre-web
+    depends_on:
+      - calibre
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-America/Chicago}
+      # x86_64 ONLY: enable ebook conversion inside Calibre-Web
+      # - DOCKER_MODS=linuxserver/mods:universal-calibre
+      # Optional: needed for Google OAuth
+      # - OAUTHLIB_RELAX_TOKEN_SCOPE=1
+    volumes:
+      # Calibre-Web app config
+      - ${CALIBRE_WEB_CONFIG:-/home/jm/data/calibre-web}:/config
+      # Point Calibre-Web at the actual Calibre library folder
+      - ${CALIBRE_CONFIG:-/home/jm/data/calibre}/Calibre Library:/books:rw
+    ports:
+      - "8083:8083"   # Calibre-Web UI
+    restart: unless-stopped
+
+networks:
+  default:
+    name: books_net
