@@ -1,4 +1,4 @@
-# Cortex
+# Cortez
 
 A new project initialized by the assistant. Update this README with your project description, goals, and setup instructions.
 
