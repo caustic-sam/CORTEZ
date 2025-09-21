@@ -86,6 +86,17 @@ sudo ./scripts/fix-perms.sh
 
 - If you're unsure about merging a large change or need a rollback plan, open a PR and add `@caustic-sam` as reviewer.
 
+9) Branch protection & CI failures
+
+- `main` is protected: direct pushes are disallowed and at least one approving review plus passing CI is required.
+- If a PR fails the `ci` check (or other required checks):
+  1. Open the PR's Checks tab to see the failing job and logs.
+  2. Re-run the failed job from the Actions UI if it looks flaky.
+  3. If the failure is reproducible, fix the script or workflow and push a new commit to the PR.
+  4. If you need to bypass protection for an emergency, only do so as a last resort and document the reason in the issue and the commit message (requires admin rights).
+
+- Notification: GitHub will notify reviewers and the committer when checks fail; ensure your notification settings are enabled or set up a Slack/email integration if you want immediate alerts.
+
 ---
 
 Keep this file short and update as the project's practices evolve.
