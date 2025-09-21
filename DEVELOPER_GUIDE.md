@@ -99,10 +99,10 @@ sudo ./scripts/fix-perms.sh
 
 9) Home Assistant container scaffold
 
-- A minimal development scaffold lives in `rr_homeassistant/`. It includes a `Dockerfile` (non-root example) and a `docker-compose.yml` for local testing.
+-- A minimal development scaffold lives in `rr-homeassistant/`. It includes a `Dockerfile` (non-root example) and a `docker-compose.yml` for local testing.
 - To iterate:
   ```bash
-  cd rr_homeassistant
+  cd rr-homeassistant
   docker compose up --build
   ```
 - For production usage, switch to the official Home Assistant images and follow their deployment recommendations.

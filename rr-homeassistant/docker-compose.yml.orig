@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  homeassistant:
+    build: .
+    container_name: rr_homeassistant
+    volumes:
+      - ./config:/config:rw
+      - ./deps:/deps:rw
+    environment:
+      - TZ=UTC
+    restart: unless-stopped
+    networks:
+      - rric
+
+networks:
+  rric:
+    driver: bridge

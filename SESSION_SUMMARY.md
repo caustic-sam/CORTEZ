@@ -16,8 +16,8 @@ Tags created
 
 PRs / Issues
 - Docs PR for branch-protection note: https://github.com/caustic-sam/CORTEZ/pull/8
-- rr_homeassistant scaffold PR suggestion: https://github.com/caustic-sam/CORTEZ/pull/new/rr-homeassistant
-- rr_homeassistant tracking issue: https://github.com/caustic-sam/CORTEZ/issues/9
+-- rr-homeassistant scaffold PR suggestion: https://github.com/caustic-sam/CORTEZ/pull/new/rr-homeassistant
+-- rr-homeassistant tracking issue: https://github.com/caustic-sam/CORTEZ/issues/9
 - Other issues created: #1..#7 (protection, CI, changelog, runtime-data, secrets audit, fix-perms automation, release notes)
 
 Files added/edited
@@ -25,9 +25,9 @@ Files added/edited
 - DEVELOPER_GUIDE.md (new developer guide + branch protection note)
 - scripts/fix-perms.sh (new executable helper)
 - .github/workflows/ci.yml (CI: shellcheck + bash -n)
-- rr_homeassistant/Dockerfile (scaffold)
-- rr_homeassistant/docker-compose.yml (scaffold)
-- rr_homeassistant/README.md (scaffold)
+- rr-homeassistant/Dockerfile (scaffold)
+- rr-homeassistant/docker-compose.yml (scaffold)
+- rr-homeassistant/README.md (scaffold)
 
 What I ran (chronological highlights)
 - Diagnostics: git status, ls -la, find . -not -user jm
@@ -47,7 +47,7 @@ git fetch origin
 git checkout rr-homeassistant
 
 # run the scaffold locally
-cd rr_homeassistant
+cd rr-homeassistant
 docker compose up --build
 
 # check docs PR status and merge when CI passes
@@ -78,8 +78,8 @@ Notes on continuity and chat context
 
 How I recommend you resume (fast path)
 1. Checkout the scaffold branch: `git checkout rr-homeassistant`
-2. Run the scaffold locally: `cd rr_homeassistant && docker compose up --build`
-3. Review the rr_homeassistant issue: https://github.com/caustic-sam/CORTEZ/issues/9
+2. Run the scaffold locally: `cd rr-homeassistant && docker compose up --build`
+3. Review the rr-homeassistant issue: https://github.com/caustic-sam/CORTEZ/issues/9
 4. Tell me which task to do next: (a) Harden Dockerfile to official HA image, (b) add CI to build image, (c) migrate config and test, (d) create PR with production-ready manifest.
 
 If you'd like me to continue when you return, open this conversation in ChatGPT and say "resume session" — I'll re-run the summary steps and continue from the branch and task you select.

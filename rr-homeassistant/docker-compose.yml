@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+  container_name: rr-homeassistant
+    volumes:
+      - ./config:/config:rw
+      - ./deps:/deps:rw
+      - ./tts:/tts:rw
+    environment:
+      - TZ=UTC
+    restart: unless-stopped
+    networks:
+      version: '3.8'
+
+      services:
+        homeassistant:
+          image: ghcr.io/home-assistant/home-assistant:stable
+          container_name: rr-homeassistant
+          volumes:
+            - ./config:/config:rw
+            - ./deps:/deps:rw
+            - ./tts:/tts:rw
+          environment:
+            - TZ=UTC
+          restart: unless-stopped
+          networks:
+            - rpi_net
+
+        # Optional one-shot HACS installer. It copies HACS into ./config/custom_components/hacs
+        # and should be run once (set command: [] and restart: 'no') or enabled manually.
+        hacs-installer:
+          image: alpine:latest
+          container_name: rr-homeassistant-hacs-installer
+          volumes:
+            - ./config:/config:rw
+            - ./rr-homeassistant/scripts:/scripts:ro
+          entrypoint: ["/bin/sh", "/scripts/hacs_install.sh"]
+          # Disabled by default. Change command to [] and restart to 'no' to run once.
+          command: ["sleep", "1"]
+          restart: "no"
+          networks:
+            - rpi_net
+
+      networks:
+        # Macvlan network configured here as an example. Many users prefer to create the
+        # macvlan on the host and attach containers to it (safer and more flexible).
+        rpi_net:
+          driver: macvlan
+          driver_opts:
+            parent: eth0
+          ipam:
+            config:
+              - subnet: 192.168.1.0/24
+                gateway: 192.168.1.254
+                aux_addresses:
+                  rr-homeassistant: 192.168.1.25
