@@ -3,7 +3,7 @@ version: '3.8'
 services:
   homeassistant:
     image: ghcr.io/home-assistant/home-assistant:stable
-    container_name: rr_homeassistant
+  container_name: rr-homeassistant
     volumes:
       - ./config:/config:rw
       - ./deps:/deps:rw
@@ -18,10 +18,10 @@ services:
   # and should be run once (set command: [] and restart: 'no') or enabled manually.
   hacs-installer:
     image: alpine:latest
-    container_name: rr_homeassistant_hacs_installer
+    container_name: rr-homeassistant-hacs-installer
     volumes:
       - ./config:/config:rw
-      - ./rr_homeassistant/scripts:/scripts:ro
+      - ./rr-homeassistant/scripts:/scripts:ro
     entrypoint: ["/bin/sh", "/scripts/hacs_install.sh"]
     # Disabled by default. Change command to [] and restart to 'no' to run once.
     command: ["sleep", "1"]
