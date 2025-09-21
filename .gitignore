@@ -1,4 +1,16 @@
-# macOS
+# Ignore Home Assistant runtime files and backups for rr-homeassistant
+rr-homeassistant/config/.storage/
+rr-homeassistant/config/home-assistant_v2.db
+rr-homeassistant/config/*.log
+rr-homeassistant/ha_config_backup_*.tar.gz
+
+# ignore VS Code history and server caches
+.vscode-server/
+.vscode/
+
+# local OS files
+*.swp
+*.tmp# macOS
 .DS_Store
 
 # Node
